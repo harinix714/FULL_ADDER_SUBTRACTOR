@@ -38,18 +38,62 @@ Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
 
+
+<img width="754" height="563" alt="Screenshot 2025-10-20 180757" src="https://github.com/user-attachments/assets/2b2c5039-22a6-4a93-8d6c-ad000265d3e9" />
+<img width="507" height="350" alt="Screenshot 2025-10-20 180618" src="https://github.com/user-attachments/assets/ddb95d6c-af46-4f51-932f-76ec0871fbe3" />
+
+
+
+
+
 **Procedure**
 
 Write the detailed procedure here
 
 **Program:**
+module fulladder (
+    input  wire a, b, cin,   // Inputs
+    output wire sum, carry   // Outputs
+);
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+    // Logic equations
+    assign sum   = a ^ b ^ cin;                  // XOR for sum
+    assign carry = (a & b) | (b & cin) | (a & cin); // Majority function for carry
 
-**RTL Schematic**
+endmodule
+
+module fafs (
+    input  wire a, b, bin,       // Inputs
+    output wire diff, borrow     // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b ^ bin;                  // Difference
+    assign borrow = (~a & b) | (~(a ^ b) & bin);  // Borrow logic
+
+endmodule
+
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+Developed by:Harini S K 
+RegisterNumber:25018849
+
+
+**RTL Schematic
+
+
+<img width="1920" height="1080" alt="Screenshot 2025-10-20 172350" src="https://github.com/user-attachments/assets/ce57a79b-8ef4-4f15-966d-acf7f05d358c" />
+
+<img width="1920" height="1080" alt="Screenshot 2025-10-20 175731" src="https://github.com/user-attachments/assets/177e7718-ae23-4fce-ac6f-b0014f55f925" />
+
+
 
 **Output Timing Waveform**
+
+<img width="1920" height="1080" alt="Screenshot 2025-10-20 172359" src="https://github.com/user-attachments/assets/1dfdd499-6a17-402b-9207-4178881bf264" />
+
+<img width="1920" height="1080" alt="Screenshot 2025-10-20 175903" src="https://github.com/user-attachments/assets/304a747f-860f-4bd3-b9d1-1d74acea8287" />
+
+
 
 **Result:**
 
